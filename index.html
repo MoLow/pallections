@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>בחירות בפלסטין</title>
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
     <style>
@@ -44,8 +44,9 @@
             if (count > 1) setTimeout(function () { nextNumber(count - 1, number); }, 50);
         }
 
-
-        nextNumber(_.random(15, 35), moment().diff(moment("2007-01-30"), 'days'));
+        var days = moment().diff(moment("2007-01-30"), 'days');
+        document.title = days + " מאז הבחירות בפלסטין";
+        nextNumber(_.random(15, 35), days);
     </script>
 </body>
 </html>
