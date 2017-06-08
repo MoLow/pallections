@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            direction: rtl;
+            display: flex;
+            background-image: linear-gradient(to bottom,#000 33%, #fff 33%, #fff 66%, #007a3d 66%);
+            color: #ce1126;
+        }
+
+        h1 {
+            font-size: 35px;
+            font-family: 'Suez One', serif;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1txt"></h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/he.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script>
+        moment.locale("he");
+
+        function numberWithCommas(x) { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+        function printText(number) {
+            h1txt.innerHTML = "היום ה" + moment().format("D MMM YYYY") + ", שהם<br/>" + numberWithCommas(number) + ' ימים מאז התקיימו בחירות ברשות הפלסטינית';
+        }
+        function nextNumber(count, number) {
+            printText(Math.ceil(number / count));
+            if (count > 1) setTimeout(function () { nextNumber(count - 1, number); }, 50);
+        }
+
+
+        nextNumber(_.random(15, 35), moment().diff(moment("2007-01-30"), 'days'));
+    </script>
+</body>
+</html>
