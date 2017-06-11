@@ -44,7 +44,7 @@
             if (count > 1) setTimeout(function () { nextNumber(count - 1, number); }, 50);
         }
 
-        var days = moment().diff(moment("2006-01-30"), 'days');
+        var days = moment().diff(moment("2006-01-01"), 'days');
         document.title = days + " ימים מאז הבחירות בפלסטין";
         nextNumber(_.random(15, 35), days);
     </script>
